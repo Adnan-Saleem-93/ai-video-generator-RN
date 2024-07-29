@@ -46,8 +46,8 @@ export default function App() {
             </Text>
             <Image
               source={images.path}
-              className="w-[150px] h-[15px] absolute -right-8 -bottom-1.5"
-              resizeMode="contain"
+              className="w-[100px] h-[15px] absolute right-3 -bottom-1.5"
+              resizeMode="cover"
             />
           </View>
           {/* Section 4 */}
