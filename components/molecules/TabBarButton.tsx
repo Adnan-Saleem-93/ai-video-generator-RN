@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {name: string; color: string; focused: boolean; icon: any}
 
-const TabBarIcon = ({name, color, focused, icon}: Props) => {
+const TabBarButton = ({name, color, focused, icon}: Props) => {
   return (
     <View className="flex items-center justify-center gap-1.5">
       <Image source={icon} resizeMode="contain" tintColor={color} className="h-6 w-6" />
@@ -17,4 +17,4 @@ const TabBarIcon = ({name, color, focused, icon}: Props) => {
   )
 }
 
-export default TabBarIcon
+export default TabBarButton
