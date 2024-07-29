@@ -5,8 +5,8 @@ type Props = {}
 
 const Create = (props: Props) => {
   return (
-    <View>
-      <Text>Create</Text>
+    <View className="flex-1 items-center justify-center">
+      <Text className="text-3xl text-red-500">Create</Text>
     </View>
   )
 }
