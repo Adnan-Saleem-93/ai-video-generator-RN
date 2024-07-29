@@ -4,18 +4,27 @@ import React, {ReactNode} from 'react'
 type Props = {
   text: string | ReactNode
   onPress?: ((...args: any[]) => void) | null
-  classes?: string
+  btnClasses?: string
+  textClasses?: string
   Icon?: any
 }
 
-const PrimaryButton = ({text, onPress = null, classes = '', Icon = null}: Props) => {
+const PrimaryButton = ({
+  text,
+  onPress = null,
+  btnClasses = '',
+  textClasses = '',
+  Icon = null
+}: Props) => {
   return (
     <Pressable
       android_ripple={{color: 'black-100'}}
-      className={`bg-secondary-200 w-full ${classes} py-5 px-4 rounded-xl`}
+      className={`bg-secondary-200 w-full ${btnClasses} py-4 px-4 rounded-xl`}
       onPress={() => onPress && onPress()}
     >
-      <Text className="text-black-100 font-bold text-center text-2xl">{text}</Text>
+      <Text className={`text-black-100 font-extrabold text-center text-xl ${textClasses}`}>
+        {text}
+      </Text>
       {/* Add Icon Component Here */}
     </Pressable>
   )
