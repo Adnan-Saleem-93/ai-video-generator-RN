@@ -1,12 +1,12 @@
 import React from 'react'
-import TabsBar from '@/components/organisms/TabBar'
+import TabBar from '@/components/organisms/TabBar'
 
 type Props = {}
 
 const TabsLayout = (props: Props) => {
   return (
     <>
-      <TabsBar />
+      <TabBar />
     </>
   )
 }

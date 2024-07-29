@@ -3,7 +3,7 @@ import {Tabs} from 'expo-router'
 import TabBarIcon from '@/components/molecules/TabBarButton'
 import {icons} from '../../constants'
 
-const TabsBar = () => {
+const TabBar = () => {
   return (
     <>
       <Tabs
@@ -64,4 +64,4 @@ const TabsBar = () => {
   )
 }
 
-export default TabsBar
+export default TabBar
