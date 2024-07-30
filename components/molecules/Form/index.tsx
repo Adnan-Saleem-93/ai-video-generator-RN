@@ -32,9 +32,9 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
             )}
             name={name}
           />
-          {errors[name]?.message && (
-            <Text className="text-red-300 text-sm">{errors[name]?.message || 'Required'}</Text>
-          )}
+          {errors && errors[name]?.message ? (
+            <Text className="text-red-300 text-sm">{errors[name].message.toString()}</Text>
+          ) : null}
         </View>
       ))}
       {/* Render submit button */}
