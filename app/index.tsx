@@ -4,6 +4,7 @@ import {StatusBar} from 'expo-status-bar'
 import {Image, ScrollView, Text, View} from 'react-native'
 import {router} from 'expo-router'
 import {SafeAreaView} from 'react-native-safe-area-context'
+import AppName from '@/components/atoms/Typography/AppName'
 
 export default function App() {
   return (
@@ -16,10 +17,7 @@ export default function App() {
         <View className="w-full justify-center items-center h-full px-6 gap-y-4">
           {/* Section 1 */}
           <View className="items-center justify-center">
-            <Text className="text-3xl font-bold text-white">
-              Reel
-              <Text className="text-blue-400">Mind</Text>
-            </Text>
+            <AppName />
           </View>
           {/* Section 2 */}
           <View className="items-center justify-center w-full">
@@ -40,7 +38,7 @@ export default function App() {
               </Text>
               <Image
                 source={images.path}
-                className="w-[100px] h-[15px] absolute right-3 -bottom-1.5"
+                className="w-[100px] h-[15px] absolute right-1 -bottom-1.5"
                 resizeMode="cover"
               />
             </View>
