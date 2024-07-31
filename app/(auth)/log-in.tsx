@@ -4,6 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context'
 import AppName from '@/components/atoms/Typography/AppName'
 import Form from '@/components/molecules/Form'
 import {LoginSchema} from '@/schemas/loginSchema'
+import {Link} from 'expo-router'
 
 type LoginDataType = {
   email: string
@@ -22,14 +23,14 @@ const LogIn = () => {
           width: '100%'
         }}
       >
-        <View className="px-4 w-full h-full">
-          <View className="justify-center h-full w-full gap-y-8">
+        <View className="px-4 w-full h-full max-h-full">
+          <View className="justify-center h-full w-full gap-y-4">
             <AppName />
             <Text className="text-white text-2xl uppercase mb-8">Log In</Text>
             <Form<LoginDataType>
               fields={[
-                {name: 'email', label: 'Email', placeholder: 'Email Address'},
-                {name: 'password', label: 'Password', placeholder: 'Password'}
+                {name: 'email', placeholder: 'Email Address'},
+                {name: 'password', placeholder: 'Password'}
               ]}
               onSubmit={onSubmit}
               buttonText="Log In"
@@ -37,6 +38,13 @@ const LogIn = () => {
               showLabels={false}
               schema={LoginSchema}
             />
+            <Text className="text-center text-white text-lg tracking-wider">
+              Don’t have an account?
+              <Link href="/sign-up" className="font-extrabold text-secondary-200">
+                {' '}
+                Sign Up
+              </Link>
+            </Text>
           </View>
         </View>
       </ScrollView>

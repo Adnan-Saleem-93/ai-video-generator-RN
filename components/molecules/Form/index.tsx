@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useForm, Controller, FieldValues} from 'react-hook-form'
 import {View, Text} from 'react-native'
 import Input from '@/components/atoms/Form/Input'
@@ -11,29 +11,40 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
   const {
     control,
     handleSubmit,
+    reset,
     formState: {errors}
   } = useForm<T>({
     defaultValues: props.defaultValues,
     resolver: zodResolver(schema)
   })
 
-  console.log('errors', errors)
+  useEffect(() => {
+    return () => {
+      console.log('navigating')
+      reset()
+    }
+  }, [])
 
   return (
     <View className="flex w-full gap-y-8">
       {fields.map(({label, name, placeholder}) => (
         <View className="flex flex-col gap-y-2" key={name}>
-          {showLabels && <Text className="text-lg text-gray-500">{label}</Text>}
+          {showLabels && label && <Text className="text-lg text-gray-500">{label}</Text>}
           {/* Use Controller to integrate custom Input component with react-hook-form */}
           <Controller
             control={control}
             render={({field: {onChange, value}}) => (
-              <Input onChangeText={onChange} value={value} placeholder={placeholder} />
+              <Input
+                onChangeText={onChange}
+                value={value}
+                placeholder={placeholder}
+                error={errors[name]?.message ? true : false}
+              />
             )}
             name={name}
           />
           {errors && errors[name]?.message ? (
-            <Text className="text-red-300 text-sm">{errors[name].message.toString()}</Text>
+            <Text className="text-orange-400 text-sm">{errors[name].message.toString()}</Text>
           ) : null}
         </View>
       ))}

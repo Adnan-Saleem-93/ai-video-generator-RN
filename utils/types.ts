@@ -1,5 +1,5 @@
 export type FormField = {
-  label: string
+  label?: string
   name: string
   placeholder: string
 }

@@ -3,7 +3,7 @@ import images from './images'
 
 export {icons, images}
 
-export const APP_NAME = 'ReelMind'
+export const APP_NAME = 'ReedForge'
 export const COLORS = {
   PRIMARY: '#161622',
   SECONDARY: {
