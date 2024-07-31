@@ -20,7 +20,6 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
 
   useEffect(() => {
     return () => {
-      console.log('navigating')
       reset()
     }
   }, [])
