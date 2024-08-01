@@ -6,6 +6,6 @@ export interface FormInteface<T> {
   onSubmit: (data: T) => void
   buttonText: string
   showLabels?: boolean
-  schema: ZodObject<any, any, any>
+  schema?: ZodObject<any, any, any>
   [x: string]: any
 }

@@ -19,7 +19,7 @@ const PrimaryButton = ({
   return (
     <Pressable
       android_ripple={{color: 'black-100'}}
-      className={`bg-secondary-200 w-full ${btnClasses} py-4 px-4 rounded-xl`}
+      className={`bg-secondary w-full ${btnClasses} py-4 px-4 rounded-xl`}
       onPress={() => onPress && onPress()}
     >
       <Text className={`text-black-100 font-extrabold text-center text-xl ${textClasses}`}>

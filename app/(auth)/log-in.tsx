@@ -4,7 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context'
 import AppName from '@/components/atoms/Typography/AppName'
 import Form from '@/components/molecules/Form'
 import {LoginSchema} from '@/schemas/loginSchema'
-import {Link} from 'expo-router'
+import {Link, router} from 'expo-router'
 
 type LoginDataType = {
   email: string
@@ -13,7 +13,8 @@ type LoginDataType = {
 
 const LogIn = () => {
   const onSubmit = (data: LoginDataType) => {
-    console.log(data)
+    // Authenticate user and navigate to home page
+    router.navigate('/home')
   }
   return (
     <SafeAreaView className="h-full bg-primary">
@@ -36,11 +37,11 @@ const LogIn = () => {
               buttonText="Log In"
               defaultValues={{email: '', password: ''}}
               showLabels={false}
-              schema={LoginSchema}
+              // schema={LoginSchema}
             />
             <Text className="text-center text-white text-lg tracking-wider">
               Don’t have an account?
-              <Link href="/sign-up" className="font-extrabold text-secondary-200">
+              <Link href="/sign-up" className="font-extrabold text-secondary">
                 {' '}
                 Sign Up
               </Link>

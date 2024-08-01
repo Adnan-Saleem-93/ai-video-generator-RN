@@ -4,7 +4,8 @@ import {SafeAreaView} from 'react-native-safe-area-context'
 import AppName from '@/components/atoms/Typography/AppName'
 import Form from '@/components/molecules/Form'
 import {LoginSchema} from '@/schemas/loginSchema'
-import {Link} from 'expo-router'
+import {Link, router} from 'expo-router'
+import {SignupSchema} from '@/schemas/signupSchema'
 
 type SignUpDataType = {
   email: string
@@ -14,7 +15,8 @@ type SignUpDataType = {
 
 const SignUp = () => {
   const onSubmit = (data: SignUpDataType) => {
-    console.log(data)
+    // Register user and navigate to home page
+    router.navigate('/home')
   }
   return (
     <SafeAreaView className="h-full bg-primary">
@@ -38,11 +40,11 @@ const SignUp = () => {
               buttonText="Sign Up"
               defaultValues={{email: '', password: '', confirmPassword: ''}}
               showLabels={false}
-              schema={LoginSchema}
+              // schema={SignupSchema}
             />
             <Text className="text-center text-white text-lg tracking-wider">
               Already have an account?
-              <Link href="/log-in" className="font-extrabold text-secondary-200">
+              <Link href="/log-in" className="font-extrabold text-secondary">
                 {' '}
                 Login
               </Link>
