@@ -13,7 +13,6 @@ const AuthLayout = (props: Props) => {
         <Stack.Screen name="log-in" options={{headerShown: false}} />
         <Stack.Screen name="sign-up" options={{headerShown: false}} />
       </Stack>
-      <StatusBar style="light" backgroundColor={COLORS.PRIMARY} />
     </>
   )
 }

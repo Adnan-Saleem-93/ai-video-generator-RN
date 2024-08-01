@@ -1,15 +1,27 @@
-import {TextInput} from 'react-native'
+import {Image, TextInput, View} from 'react-native'
 import React from 'react'
 
-const Input = (props: {[key: string]: any}) => {
+type Props = {
+  value: string
+  onChangeText: (text: string) => void
+  icon?: any
+  [key: string]: any
+}
+
+const Input = (props: Props) => {
   return (
-    <TextInput
-      className={`w-full py-3 px-2 ${
-        props.error ? 'border-2 border-red-500' : 'border border-gray-500'
-      } rounded-lg focus:border-2 focus:border-secondary text-white text-[17px] text-gray-400/ placeholder:tracking-widest`}
-      {...props}
-      placeholderTextColor="#9ca3afcc"
-    />
+    <View className="relative">
+      <TextInput
+        className={`w-full py-3 px-2 ${
+          props.error ? 'border-2 border-red-500' : 'border border-gray-500'
+        } rounded-lg focus:border-2 focus:border-secondary text-white text-[17px] placeholder:tracking-widest ${
+          props.classes
+        }`}
+        placeholderTextColor="#9ca3afcc"
+        {...props}
+      />
+      {props.icon && <Image source={props.icon} className="w-4 h-4 absolute right-4 bottom-4" />}
+    </View>
   )
 }
 

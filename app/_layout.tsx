@@ -1,5 +1,7 @@
 // import {useFonts} from 'expo-font'
-import {SplashScreen, Stack} from 'expo-router'
+import {COLORS} from '@/constants'
+import {Stack} from 'expo-router'
+import {StatusBar} from 'expo-status-bar'
 // import {useEffect} from 'react'
 // import {
 //   useFonts,
@@ -39,10 +41,14 @@ const RootLayout = () => {
   // if (!fontsLoaded && !error) return null
 
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{headerShown: false}} />
-      <Stack.Screen name="(auth)" options={{headerShown: false}} />
-    </Stack>
+    <>
+      <Stack>
+        <Stack.Screen name="index" options={{headerShown: false}} />
+        <Stack.Screen name="(auth)" options={{headerShown: false}} />
+        <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+      </Stack>
+      <StatusBar backgroundColor={COLORS.PRIMARY} style="light" />
+    </>
   )
 }
 
