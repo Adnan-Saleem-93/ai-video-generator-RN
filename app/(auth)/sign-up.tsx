@@ -10,7 +10,7 @@ import {SignupSchema} from '@/schemas/signupSchema'
 type SignUpDataType = {
   email: string
   password: string
-  confirmPassword: string
+  confirm_password: string
 }
 
 const SignUp = () => {
@@ -34,13 +34,13 @@ const SignUp = () => {
               fields={[
                 {name: 'email', placeholder: 'Provide an Email Address'},
                 {name: 'password', placeholder: 'Create a Password'},
-                {name: 'confirmPassword', placeholder: 'Confirm Password'}
+                {name: 'confirm_password', placeholder: 'Confirm Password'}
               ]}
               onSubmit={onSubmit}
               buttonText="Sign Up"
-              defaultValues={{email: '', password: '', confirmPassword: ''}}
+              defaultValues={{email: '', password: '', confirm_password: ''}}
               showLabels={false}
-              // schema={SignupSchema}
+              schema={SignupSchema}
             />
             <Text className="text-center text-white text-lg tracking-wider">
               Already have an account?

@@ -14,8 +14,8 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
     reset,
     formState: {errors}
   } = useForm<T>({
-    defaultValues: props.defaultValues
-    // ...(schema && {resolver: zodResolver(schema)})
+    defaultValues: props.defaultValues,
+    ...(schema && {resolver: zodResolver(schema)})
   })
 
   useEffect(() => {

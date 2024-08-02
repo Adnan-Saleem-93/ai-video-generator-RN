@@ -37,7 +37,7 @@ const LogIn = () => {
               buttonText="Log In"
               defaultValues={{email: '', password: ''}}
               showLabels={false}
-              // schema={LoginSchema}
+              schema={LoginSchema}
             />
             <Text className="text-center text-white text-lg tracking-wider">
               Don’t have an account?

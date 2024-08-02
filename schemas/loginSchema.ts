@@ -2,17 +2,11 @@ import {z} from 'zod'
 
 export const LoginSchema = z.object({
   email: z
-    .string({
-      required_error: 'Email is required!',
-      invalid_type_error: 'Please provide a valid email address!'
-    })
-    .email(),
+    .string()
+    .min(1, 'Email is required!')
+    .email({message: 'Please provide a valid email address!'}),
   password: z
-    .string({
-      required_error: 'Password is required!',
-      invalid_type_error: 'Password should be at least 8 characters long!'
-      // too_short_error: (val) =>
-      //   : 'Password should be at least 8 characters long!'
-    })
-    .min(8)
+    .string()
+    .min(1, 'Password is required!')
+    .min(8, 'Password should be at least 8 characters long!')
 })
