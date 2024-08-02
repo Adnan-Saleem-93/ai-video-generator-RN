@@ -5,11 +5,17 @@ import AppName from '@/components/atoms/Typography/AppName'
 import Form from '@/components/molecules/Form'
 import {LoginSchema} from '@/schemas/loginSchema'
 import {Link, router} from 'expo-router'
+import {FormField} from '@/utils/types'
 
 type LoginDataType = {
   email: string
   password: string
 }
+
+const fields: FormField[] = [
+  {name: 'email', placeholder: 'Email Address', type: 'email'},
+  {name: 'password', placeholder: 'Password', type: 'password'}
+]
 
 const LogIn = () => {
   const onSubmit = (data: LoginDataType) => {
@@ -29,10 +35,7 @@ const LogIn = () => {
             <AppName />
             <Text className="text-white text-2xl uppercase mb-8">Log In</Text>
             <Form<LoginDataType>
-              fields={[
-                {name: 'email', placeholder: 'Email Address'},
-                {name: 'password', placeholder: 'Password'}
-              ]}
+              fields={fields}
               onSubmit={onSubmit}
               buttonText="Log In"
               defaultValues={{email: '', password: ''}}

@@ -26,7 +26,7 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
 
   return (
     <View className="flex w-full gap-y-8">
-      {fields.map(({label, name, placeholder}) => (
+      {fields.map(({label, name, placeholder, type}) => (
         <View className="flex flex-col gap-y-2" key={name}>
           {showLabels && label && <Text className="text-lg text-gray-500">{label}</Text>}
           {/* Use Controller to integrate custom Input component with react-hook-form */}
@@ -38,6 +38,8 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
                 value={value}
                 placeholder={placeholder}
                 error={errors[name]?.message ? true : false}
+                name={name}
+                type={type || 'text'}
               />
             )}
             name={name}

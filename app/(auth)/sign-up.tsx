@@ -3,15 +3,21 @@ import React from 'react'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import AppName from '@/components/atoms/Typography/AppName'
 import Form from '@/components/molecules/Form'
-import {LoginSchema} from '@/schemas/loginSchema'
 import {Link, router} from 'expo-router'
 import {SignupSchema} from '@/schemas/signupSchema'
+import {FormField} from '@/utils/types'
 
 type SignUpDataType = {
   email: string
   password: string
   confirm_password: string
 }
+
+const fields: FormField[] = [
+  {name: 'email', placeholder: 'Provide an Email Address', type: 'email'},
+  {name: 'password', placeholder: 'Create a Password', type: 'password'},
+  {name: 'confirm_password', placeholder: 'Confirm Password', type: 'password'}
+]
 
 const SignUp = () => {
   const onSubmit = (data: SignUpDataType) => {
@@ -31,11 +37,7 @@ const SignUp = () => {
             <AppName />
             <Text className="text-white text-2xl uppercase mb-8">Sign Up</Text>
             <Form<SignUpDataType>
-              fields={[
-                {name: 'email', placeholder: 'Provide an Email Address'},
-                {name: 'password', placeholder: 'Create a Password'},
-                {name: 'confirm_password', placeholder: 'Confirm Password'}
-              ]}
+              fields={fields}
               onSubmit={onSubmit}
               buttonText="Sign Up"
               defaultValues={{email: '', password: '', confirm_password: ''}}
