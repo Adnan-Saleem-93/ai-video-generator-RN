@@ -7,5 +7,6 @@ export interface FormInteface<T> {
   buttonText: string
   showLabels?: boolean
   schema?: ZodObject<any, any, any>
+  disableSubmit?: boolean
   [x: string]: any
 }

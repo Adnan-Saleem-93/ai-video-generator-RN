@@ -7,6 +7,7 @@ type Props = {
   btnClasses?: string
   textClasses?: string
   Icon?: any
+  isDisabled?: boolean
 }
 
 const PrimaryButton = ({
@@ -14,10 +15,12 @@ const PrimaryButton = ({
   onPress = null,
   btnClasses = '',
   textClasses = '',
-  Icon = null
+  Icon = null,
+  isDisabled = false
 }: Props) => {
   return (
     <Pressable
+      // disabled={isDisabled}
       android_ripple={{color: 'black-100'}}
       className={`bg-secondary w-full ${btnClasses} py-4 px-4 rounded-xl`}
       onPress={() => onPress && onPress()}

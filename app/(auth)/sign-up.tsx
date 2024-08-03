@@ -6,6 +6,8 @@ import Form from '@/components/molecules/Form'
 import {Link, router} from 'expo-router'
 import {SignupSchema} from '@/schemas/signupSchema'
 import {FormField} from '@/utils/types'
+import {createUser} from '@/lib/appwrite'
+import {useMutation} from '@tanstack/react-query'
 
 type SignUpDataType = {
   email: string
@@ -20,9 +22,26 @@ const fields: FormField[] = [
 ]
 
 const SignUp = () => {
-  const onSubmit = (data: SignUpDataType) => {
-    // Register user and navigate to home page
-    router.navigate('/home')
+  const {isPending, mutate: SignUpUser} = useMutation({
+    mutationKey: ['createUser'],
+    mutationFn: async (data: SignUpDataType) => {
+      try {
+        const respponse = await createUser({email: data.email, password: data.password})
+      } catch (error) {
+        // TODO: show ERROR notification toast
+      }
+    },
+    onSuccess: () => {
+      router.navigate('/home')
+      // TODO: show SUCCESS notification toast
+    },
+    onError: (error) => {
+      // TODO: show error notification toast
+    }
+  })
+
+  const onSubmit = async (data: SignUpDataType) => {
+    SignUpUser(data)
   }
   return (
     <SafeAreaView className="h-full bg-primary">
@@ -39,9 +58,10 @@ const SignUp = () => {
             <Form<SignUpDataType>
               fields={fields}
               onSubmit={onSubmit}
-              buttonText="Sign Up"
+              buttonText={isPending ? 'Creating Account...' : 'Sign Up'}
               defaultValues={{email: '', password: '', confirm_password: ''}}
               showLabels={false}
+              // disableSubmit={isPending}
               schema={SignupSchema}
             />
             <Text className="text-center text-white text-lg tracking-wider">

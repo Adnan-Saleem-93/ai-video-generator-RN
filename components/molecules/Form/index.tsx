@@ -7,7 +7,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {FormInteface} from '@/utils/interfaces'
 
 const Form = <T extends FieldValues>(props: FormInteface<T>) => {
-  const {fields, onSubmit, buttonText, schema, showLabels = true} = props
+  const {fields, onSubmit, buttonText, schema, disableSubmit = false, showLabels = true} = props
   const {
     control,
     handleSubmit,
@@ -51,7 +51,11 @@ const Form = <T extends FieldValues>(props: FormInteface<T>) => {
       ))}
       {/* Render submit button */}
       <View>
-        <PrimaryButton text={buttonText} onPress={handleSubmit(onSubmit)} />
+        <PrimaryButton
+          text={buttonText}
+          onPress={handleSubmit(onSubmit)}
+          // isDisabled={disableSubmit}
+        />
       </View>
     </View>
   )
