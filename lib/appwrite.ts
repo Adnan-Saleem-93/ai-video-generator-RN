@@ -29,6 +29,6 @@ export const createUser = async ({
   try {
     const response = await account.create(ID.unique(), email, password, email.split('@')[0])
   } catch (error) {
-    return error
+    throw error
   }
 }

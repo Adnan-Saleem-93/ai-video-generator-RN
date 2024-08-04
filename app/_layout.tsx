@@ -20,29 +20,30 @@ import {StatusBar} from 'expo-status-bar'
 // } from '@expo-google-fonts/poppins'
 
 // SplashScreen.preventAutoHideAsync()
+
+// const [fontsLoaded, error] = useFonts({
+//   Poppins_900Black,
+//   Poppins_700Bold,
+//   Poppins_800ExtraBold,
+//   Poppins_200ExtraLight,
+//   Poppins_300Light,
+//   Poppins_500Medium,
+//   Poppins_400Regular,
+//   Poppins_600SemiBold,
+//   Poppins_100Thin
+// })
+
+// useEffect(() => {
+//   if (error) {
+//     throw error
+//   }
+//   if (fontsLoaded) SplashScreen.hideAsync()
+// }, [fontsLoaded, error])
+
+// if (!fontsLoaded && !error) return null
+
 const queryClient = new QueryClient()
 const RootLayout = () => {
-  // const [fontsLoaded, error] = useFonts({
-  //   Poppins_900Black,
-  //   Poppins_700Bold,
-  //   Poppins_800ExtraBold,
-  //   Poppins_200ExtraLight,
-  //   Poppins_300Light,
-  //   Poppins_500Medium,
-  //   Poppins_400Regular,
-  //   Poppins_600SemiBold,
-  //   Poppins_100Thin
-  // })
-
-  // useEffect(() => {
-  //   if (error) {
-  //     throw error
-  //   }
-  //   if (fontsLoaded) SplashScreen.hideAsync()
-  // }, [fontsLoaded, error])
-
-  // if (!fontsLoaded && !error) return null
-
   return (
     <>
       <QueryClientProvider client={queryClient}>

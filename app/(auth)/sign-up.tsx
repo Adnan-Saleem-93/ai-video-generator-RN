@@ -25,17 +25,14 @@ const SignUp = () => {
   const {isPending, mutate: SignUpUser} = useMutation({
     mutationKey: ['createUser'],
     mutationFn: async (data: SignUpDataType) => {
-      try {
-        const respponse = await createUser({email: data.email, password: data.password})
-      } catch (error) {
-        // TODO: show ERROR notification toast
-      }
+      return await createUser({email: data.email, password: data.password})
     },
     onSuccess: () => {
       router.navigate('/home')
       // TODO: show SUCCESS notification toast
     },
     onError: (error) => {
+      console.error(error.message)
       // TODO: show error notification toast
     }
   })
